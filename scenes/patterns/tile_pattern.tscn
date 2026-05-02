@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqau2x5utxxjf"]
+
+[ext_resource type="Script" uid="uid://bwbyrd6sibpe" path="res://scripts/patterns/tile_pattern.gd" id="1_m6d7m"]
+
+[node name="TilePattern" type="Node2D" unique_id=90852943]
+script = ExtResource("1_m6d7m")

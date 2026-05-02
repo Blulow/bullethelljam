@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dpqud8l4764sj"]
+
+[ext_resource type="Script" uid="uid://bi38m4yx7kqri" path="res://scripts/bullets/tile_bullets.gd" id="1_d5nlv"]
+
+[node name="TileBullet" type="Area2D" unique_id=1092526798]
+script = ExtResource("1_d5nlv")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=821259654]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1228792728]

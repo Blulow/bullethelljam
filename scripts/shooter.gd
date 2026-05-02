@@ -8,9 +8,10 @@ extends Node2D
 var direction: int = 0
 var radius: float
 var angle: float
+var bullet_data: Dictionary
 
 var ring: Node2D
-var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var bullet_scene: PackedScene
 
 func _ready() -> void:
 	timer.wait_time = 60 / BPM
@@ -21,17 +22,21 @@ func _process(delta: float) -> void:
 	position = Vector2.from_angle(angle) * radius
 	rotation = angle + PI / 2
 
-func spawn(spawn_radius, spawn_angle, spawn_direction, spawn_ring) -> void:
+func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: int, spawn_bullet_data: Dictionary, spawn_bullet_scene: PackedScene, spawn_ring: Node2D) -> void:
+	bullet_scene = spawn_bullet_scene
 	ring = spawn_ring
 	angle = spawn_angle
 	radius = spawn_radius - $Sprite2D.texture.get_size().y / 2
 	direction = spawn_direction
+	if not spawn_bullet_data.is_empty():
+		bullet_data = spawn_bullet_data
 
 func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
 	bullet.modulate = Color(0, 1, 0)
 	bullet.radius = radius
+	bullet.load_bullet_data(bullet_data)
 	bullet.shoot(global_position, global_rotation, ring)
 
 func _on_timer_timeout() -> void:

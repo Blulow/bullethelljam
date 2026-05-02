@@ -4,14 +4,13 @@ extends Area2D
 @export var VERTICAL_SPEED: float = 200.0
 @export var MIN_RADIUS: float = 25.0
 @export var MAX_RADIUS: float = 225.0
-@export var BULLET_SPEED: float = 1000.0
 @export var ring: Node2D
 
 var radius: float = 0.0
 var direction: Vector2
 var angle: float = 0.0
 
-var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var bullet_scene: PackedScene = preload("res://scenes/bullets/player_bullet.tscn")
 
 func _ready() -> void:
 	radius = MIN_RADIUS + $Sprite2D.texture.get_size().y / 2
@@ -43,6 +42,4 @@ func _process(delta: float) -> void:
 func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
-	bullet.modulate = Color(1, 0, 1)
-	bullet.SPEED = BULLET_SPEED
-	bullet.player_shoot(global_position, global_rotation - PI / 2)
+	bullet.shoot(global_position, global_rotation - PI / 2, ring)
