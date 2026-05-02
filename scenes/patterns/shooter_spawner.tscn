@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0f0hu84hrlab"]
 
-[ext_resource type="Script" uid="uid://dv8snf6g7br8t" path="res://scripts/shooter_spawner.gd" id="1_y53sy"]
+[ext_resource type="Script" uid="uid://dv8snf6g7br8t" path="res://scripts/patterns/shooter_spawner.gd" id="1_y53sy"]
 
 [node name="ShooterSpawner" type="Node2D" unique_id=549448170]
 script = ExtResource("1_y53sy")

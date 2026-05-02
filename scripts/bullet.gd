@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED: float = 100.0
+@export var SPEED: float = 1.0
 @export var ANGLE: float = PI/8
 @export var LENGTH: float = 25.0
 
@@ -12,7 +12,10 @@ extends Area2D
 var isPlayerShot: bool = false
 var direction: Vector2
 var radius: float = 0.0
+var start_radius: float = 0.0
 var ring: Node2D
+
+var t: float = 0.0
 
 func _process(delta: float) -> void:
 	if isPlayerShot:
@@ -21,7 +24,8 @@ func _process(delta: float) -> void:
 			sprite.visible = true
 		return
 	
-	radius -= SPEED * delta
+	t += delta * SPEED
+	radius = lerp(start_radius, MIN_RADIUS, t * t)
 	
 	if ring:
 		var points = PackedVector2Array()
@@ -43,6 +47,7 @@ func shoot(pos: Vector2, rot: float, spawn_ring: Node2D) -> void:
 	ring = spawn_ring
 	global_position = pos
 	global_rotation = rot
+	start_radius = radius
 
 func player_shoot(pos: Vector2, rot: float) -> void:
 	isPlayerShot = true

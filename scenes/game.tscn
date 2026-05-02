@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cy3ipl87jet2m" path="res://scenes/ring.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://byh5n08dgosda" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://c0f0hu84hrlab" path="res://scenes/shooter_spawner.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://djphgcpxps4g5" path="res://scenes/spawner_manager.tscn" id="4_lbhrr"]
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 3
@@ -19,8 +19,8 @@ glow_strength = 1.8
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 ring = NodePath("../Ring")
 
-[node name="ShooterSpawner" parent="." unique_id=549448170 node_paths=PackedStringArray("ring") instance=ExtResource("3_lnu2h")]
-ring = NodePath("../Ring")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1713068081]
 environment = SubResource("Environment_lnu2h")
+
+[node name="SpawnerManager" parent="." unique_id=1301305508 node_paths=PackedStringArray("ring") instance=ExtResource("4_lbhrr")]
+ring = NodePath("../Ring")

@@ -21,11 +21,11 @@ func _process(delta: float) -> void:
 	position = Vector2.from_angle(angle) * radius
 	rotation = angle + PI / 2
 
-func spawn(spawn_radius, spawn_angle, spawn_ring) -> void:
+func spawn(spawn_radius, spawn_angle, spawn_direction, spawn_ring) -> void:
 	ring = spawn_ring
 	angle = spawn_angle
 	radius = spawn_radius - $Sprite2D.texture.get_size().y / 2
-	direction = 1 if randf() > 0.5 else -1
+	direction = spawn_direction
 
 func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
