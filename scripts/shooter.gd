@@ -16,9 +16,9 @@ func _ready() -> void:
 	timer.wait_time = 60 / BPM
 
 func _process(delta: float) -> void:
-	#angle += direction * SPEED * delta
+	angle += direction * SPEED * delta
 	
-	position = Vector2(cos(angle), sin(angle)) * radius
+	position = Vector2.from_angle(angle) * radius
 	rotation = angle + PI / 2
 
 func spawn(spawn_radius, spawn_angle, spawn_ring) -> void:

@@ -6,23 +6,32 @@ extends Area2D
 
 @onready var shape = $Polygon2D
 @onready var collision = $CollisionPolygon2D
+@onready var sprite = $Sprite2D
 @export var MIN_RADIUS: float = 25.0
 
+var isPlayerShot: bool = false
+var direction: Vector2
 var radius: float = 0.0
 var ring: Node2D
 
 func _process(delta: float) -> void:
+	if isPlayerShot:
+		if direction:
+			position += direction * SPEED * delta
+			sprite.visible = true
+		return
+	
 	radius -= SPEED * delta
 	
 	if ring:
 		var points = PackedVector2Array()
 		var i: float = -ANGLE/2 + PI/256
 		while i <= ANGLE/2 + PI/256:
-			points.append(to_local(ring.to_global(Vector2(cos(i + global_rotation - PI/2), sin(i + global_rotation - PI/2)) * radius)))
+			points.append(to_local(ring.to_global(Vector2.from_angle(i + global_rotation - PI/2) * radius)))
 			i += PI/256
 		i = ANGLE/2
 		while i >= -ANGLE/2:
-			points.append(to_local(ring.to_global(Vector2(cos(i + global_rotation - PI/2), sin(i + global_rotation - PI/2)) * (radius - LENGTH))))
+			points.append(to_local(ring.to_global(Vector2.from_angle(i + global_rotation - PI/2) * (radius - LENGTH))))
 			i -= PI/256
 		shape.polygon = points
 		collision.polygon = points
@@ -34,6 +43,12 @@ func shoot(pos: Vector2, rot: float, spawn_ring: Node2D) -> void:
 	ring = spawn_ring
 	global_position = pos
 	global_rotation = rot
+
+func player_shoot(pos: Vector2, rot: float) -> void:
+	isPlayerShot = true
+	global_position = pos
+	global_rotation = rot + PI
+	direction = Vector2.from_angle(rot + PI / 2)
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()

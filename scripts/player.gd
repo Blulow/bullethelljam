@@ -44,6 +44,5 @@ func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
 	bullet.modulate = Color(1, 0, 1)
-	print(bullet.modulate)
 	bullet.SPEED = BULLET_SPEED
-	bullet.shoot(global_position, global_rotation - PI / 2)
+	bullet.player_shoot(global_position, global_rotation - PI / 2)
