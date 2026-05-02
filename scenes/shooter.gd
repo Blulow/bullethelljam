@@ -1,10 +1,19 @@
 extends Node2D
 
 @export var SPEED: float = 1.0
+@export var BPM: float = 100.0
+
+@onready var timer := $Timer
 
 var direction: int = 0
 var radius: float
 var angle: float
+
+var ring: Node2D
+var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+
+func _ready() -> void:
+	timer.wait_time = 60 / BPM
 
 func _process(delta: float) -> void:
 	angle += direction * SPEED * delta
@@ -12,7 +21,16 @@ func _process(delta: float) -> void:
 	position = Vector2(cos(angle), sin(angle)) * radius
 	rotation = angle + PI / 2
 
-func spawn(spawn_radius, spawn_angle) -> void:
+func spawn(spawn_radius, spawn_angle, spawn_ring) -> void:
+	ring = spawn_ring
 	angle = spawn_angle
 	radius = spawn_radius - $Sprite2D.texture.get_size().y / 2
 	direction = 1 if randf() > 0.5 else -1
+
+func shoot() -> void:
+	var bullet: Node2D = bullet_scene.instantiate()
+	ring.add_child(bullet)
+	bullet.shoot(global_position, global_rotation)
+
+func _on_timer_timeout() -> void:
+	shoot()

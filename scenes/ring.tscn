@@ -2,7 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://def0f3tm02d1o" path="res://aseets/images/ring.png" id="1_03kdj"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_03kdj"]
+radius = 25.079872
+
 [node name="Ring" type="Node2D" unique_id=98641754]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=206360663]
 texture = ExtResource("1_03kdj")
+
+[node name="InnerRing" type="Area2D" parent="." unique_id=630387788 groups=["inner_ring"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerRing" unique_id=1111355728]
+shape = SubResource("CircleShape2D_03kdj")

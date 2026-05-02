@@ -13,4 +13,4 @@ func spawn_shooter() -> void:
 	
 	var radius: float = ring.get_node("Sprite2D").texture.get_size().y / 2
 	var angle: float = randf() * TAU
-	shooter.spawn(radius, angle)
+	shooter.spawn(radius, angle, ring)

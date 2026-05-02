@@ -30,5 +30,5 @@ func _process(delta: float) -> void:
 	angle += direction.x * HORIZONTAL_SPEED * delta
 	radius += direction.y * VERTICAL_SPEED * delta
 	
-	position = Vector2(cos(angle), sin(angle)) * radius
+	position = Vector2.from_angle(angle) * radius
 	
