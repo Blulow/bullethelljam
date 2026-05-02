@@ -1,0 +1,43 @@
+extends Area2D
+
+@export var SPEED: float = 100.0
+@export var ANGLE: float = PI/8
+@export var LENGTH: float = 25.0
+
+@onready var shape = $Polygon2D
+@onready var collision = $CollisionPolygon2D
+@export var MIN_RADIUS: float = 25.0
+
+var radius: float = 0.0
+var ring: Node2D
+
+func _process(delta: float) -> void:
+	radius -= SPEED * delta
+	
+	if ring:
+		var points = PackedVector2Array()
+		var i: float = -ANGLE/2 + PI/256
+		while i <= ANGLE/2 + PI/256:
+			points.append(to_local(ring.to_global(Vector2(cos(i + global_rotation - PI/2), sin(i + global_rotation - PI/2)) * radius)))
+			i += PI/256
+		i = ANGLE/2
+		while i >= -ANGLE/2:
+			points.append(to_local(ring.to_global(Vector2(cos(i + global_rotation - PI/2), sin(i + global_rotation - PI/2)) * (radius - LENGTH))))
+			i -= PI/256
+		shape.polygon = points
+		collision.polygon = points
+	
+	if radius <= MIN_RADIUS:
+		queue_free()
+
+func shoot(pos: Vector2, rot: float, spawn_ring: Node2D) -> void:
+	ring = spawn_ring
+	global_position = pos
+	global_rotation = rot
+
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("inner_ring"):
+		queue_free()

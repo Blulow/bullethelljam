@@ -16,7 +16,7 @@ func _ready() -> void:
 	timer.wait_time = 60 / BPM
 
 func _process(delta: float) -> void:
-	angle += direction * SPEED * delta
+	#angle += direction * SPEED * delta
 	
 	position = Vector2(cos(angle), sin(angle)) * radius
 	rotation = angle + PI / 2
@@ -30,7 +30,9 @@ func spawn(spawn_radius, spawn_angle, spawn_ring) -> void:
 func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
-	bullet.shoot(global_position, global_rotation)
+	bullet.modulate = Color(0, 1, 0)
+	bullet.radius = radius
+	bullet.shoot(global_position, global_rotation, ring)
 
 func _on_timer_timeout() -> void:
 	shoot()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ynvy5fgw10ww"]
 
-[ext_resource type="Script" uid="uid://um57huftxcao" path="res://scenes/shooter.gd" id="1_1e8ai"]
+[ext_resource type="Script" uid="uid://um57huftxcao" path="res://scripts/shooter.gd" id="1_1e8ai"]
 [ext_resource type="Texture2D" uid="uid://dey1wi8r0jt07" path="res://aseets/images/shooter.png" id="1_gt117"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1e8ai"]

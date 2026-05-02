@@ -6,6 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
 radius = 8.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_g2els"]
+
 [node name="Player" type="Area2D" unique_id=348530264]
 script = ExtResource("1_g2els")
 
@@ -14,3 +16,8 @@ texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331652492]
 shape = SubResource("CircleShape2D_u8vuu")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1705612491]
+position = Vector2(7, 4.172325e-07)
+scale = Vector2(1.9999999, 13.999999)
+mesh = SubResource("BoxMesh_g2els")

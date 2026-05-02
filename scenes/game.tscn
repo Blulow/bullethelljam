@@ -10,7 +10,8 @@
 
 [node name="Ring" parent="." unique_id=98641754 instance=ExtResource("1_uwrxv")]
 
-[node name="Player" parent="." unique_id=348530264 instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="." unique_id=348530264 node_paths=PackedStringArray("ring") instance=ExtResource("2_yqjtg")]
+ring = NodePath("../Ring")
 
 [node name="ShooterSpawner" parent="." unique_id=549448170 node_paths=PackedStringArray("ring") instance=ExtResource("3_lnu2h")]
 ring = NodePath("../Ring")
