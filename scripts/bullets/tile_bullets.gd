@@ -1,10 +1,11 @@
 extends Bullet
 
 @export var SPEED: float = 1.0
-@export var ANGLE: float = PI/8
-@export var LENGTH: float = 25.0
-@export var ABNORMAL: bool = false
+@export var ANGLE: float
+@export var LENGTH: float
+@export var ABNORMAL: bool
 @export var MIN_RADIUS: float = 25.0
+var config: Resource
 
 @onready var shape = $Polygon2D
 @onready var collision = $CollisionPolygon2D
@@ -37,19 +38,19 @@ func _process(delta: float) -> void:
 		if radius <= MIN_RADIUS:
 			queue_free()
 
-func shoot(pos: Vector2, rot: float, spawn_ring: Node2D) -> void:
+func shoot(pos: Vector2, rot: float, spawn_ring: Node2D, spawn_config: Resource = null) -> void:
 	ring = spawn_ring
 	global_position = pos
 	global_rotation = rot
 	start_radius = radius
+	config = spawn_config
+	print(spawn_config)
+	load_bullet_config(spawn_config)
 
-func load_bullet_data(data: Dictionary) -> void:
-	if not data:
+func load_bullet_config(bullet_config: TileBulletConfig) -> void:
+	if not bullet_config:
 		return
 	
-	if data.has("angle"):
-		ANGLE = data.angle
-	if data.has("length"):
-		LENGTH = data.length
-	if data.has("abnormal"):
-		ABNORMAL = data.abnormal
+	ANGLE = bullet_config.ANGLE
+	LENGTH = bullet_config.LENGTH
+	ABNORMAL = bullet_config.ABNORMAL

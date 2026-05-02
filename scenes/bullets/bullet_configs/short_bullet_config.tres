@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TileBulletConfig" format=3 uid="uid://dlhfp4n4mvk6i"]
+
+[ext_resource type="Script" uid="uid://brxtm31y7tnh5" path="res://scripts/bullets/bullet_configs/tile_bullet_config.gd" id="1_dyg3f"]
+
+[resource]
+script = ExtResource("1_dyg3f")
