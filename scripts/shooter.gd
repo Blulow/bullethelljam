@@ -1,10 +1,10 @@
 extends Node2D
 
 @export var SPEED: float = 1.0
-@export var BPM: float = 100.0
 
 @onready var timer := $Timer
 
+var bpm: float
 var direction: int = 0
 var radius: float
 var angle: float
@@ -13,16 +13,16 @@ var bullet_config: Resource
 var ring: Node2D
 var bullet_scene: PackedScene
 
-func _ready() -> void:
-	timer.wait_time = 60 / BPM
-
 func _process(delta: float) -> void:
 	angle += direction * SPEED * delta
 	
 	position = Vector2.from_angle(angle) * radius
 	rotation = angle + PI / 2
 
-func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: int, spawn_bullet_config: Resource, spawn_bullet_scene: PackedScene, spawn_ring: Node2D) -> void:
+func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: int, spawn_bullet_config: Resource, spawn_bullet_scene: PackedScene, spawn_ring: Node2D, spawn_bpm: float) -> void:
+	bpm = spawn_bpm
+	timer.wait_time = 60 / bpm
+	
 	bullet_scene = spawn_bullet_scene
 	ring = spawn_ring
 	angle = spawn_angle

@@ -5,12 +5,15 @@ extends Bullet
 @export var LENGTH: float
 @export var ABNORMAL: bool
 @export var MIN_RADIUS: float = 25.0
+@export var PAN_SPEED: float = 3.0
 var config: Resource
 
 @onready var shape = $Polygon2D
 @onready var collision = $CollisionPolygon2D
+@onready var tile_bullet_helper = preload("res://scripts/bullets/TileBulletHelper.cs").new()
 
-var direction: Vector2
+var direction: int
+var rot: float
 var radius: float = 0.0
 var start_radius: float = 0.0
 var ring: Node2D
@@ -22,17 +25,20 @@ func _process(delta: float) -> void:
 	radius = lerp(start_radius, MIN_RADIUS, t * t)
 	
 	if ring:
-		var points = PackedVector2Array()
-		var i: float = -ANGLE/2 + PI/256
-		while i <= ANGLE/2 + PI/256:
-			points.append(to_local(ring.to_global(Vector2.from_angle(i + global_rotation - PI/2) * radius)))
-			i += PI/256
-		i = ANGLE/2
-		while i >= -ANGLE/2:
-			points.append(to_local(ring.to_global(Vector2.from_angle(i + global_rotation - PI/2) * (radius - LENGTH))))
-			i -= PI/256
+		var points: PackedVector2Array = tile_bullet_helper.GeneratePolygonHelper(ANGLE, LENGTH, radius, global_rotation, self, ring)
+		#var points = PackedVector2Array()
+		#var i: float = -ANGLE/2 + PI/256
+		#while i <= ANGLE/2 + PI/256:
+			#points.append(to_local(ring.to_global(Vector2.from_angle(i + global_rotation - PI/2) * radius)))
+			#i += PI/256
+		#i = ANGLE/2
+		#while i >= -ANGLE/2:
+			#points.append(to_local(ring.to_global(Vector2.from_angle(i + global_rotation - PI/2) * (radius - LENGTH))))
+			#i -= PI/256
 		shape.polygon = points
 		collision.polygon = points
+	
+	global_rotation += direction * PAN_SPEED * delta
 	
 	if not ABNORMAL:
 		if radius <= MIN_RADIUS:
@@ -44,7 +50,6 @@ func shoot(pos: Vector2, rot: float, spawn_ring: Node2D, spawn_config: Resource 
 	global_rotation = rot
 	start_radius = radius
 	config = spawn_config
-	print(spawn_config)
 	load_bullet_config(spawn_config)
 
 func load_bullet_config(bullet_config: TileBulletConfig) -> void:
@@ -54,3 +59,4 @@ func load_bullet_config(bullet_config: TileBulletConfig) -> void:
 	ANGLE = bullet_config.ANGLE
 	LENGTH = bullet_config.LENGTH
 	ABNORMAL = bullet_config.ABNORMAL
+	direction = bullet_config.DIRECTION

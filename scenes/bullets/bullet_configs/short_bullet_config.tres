@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_dyg3f")
+BPM = 80.0
+DIRECTION = -1.0
