@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_gme16")
 ANGLE = 0.785
+ABNORMAL = true
 COUNT = [2, 4]

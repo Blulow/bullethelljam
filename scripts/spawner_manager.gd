@@ -14,7 +14,7 @@ var bullet_configs: Dictionary = {
 }
 
 func _ready() -> void:
-	start_pattern("tile_pattern", "tile_bullets", "short_bullet_config")
+	#start_pattern("tile_pattern", "tile_bullets", "short_bullet_config")
 	start_pattern("tile_pattern", "tile_bullets", "wide_bullet_config")
 
 func start_pattern(pattern_id: String, bullet_id: String, bullet_config: String) -> void:
