@@ -4,6 +4,8 @@ extends Node2D
 
 @onready var timer := $Timer
 
+var id: int
+
 var bpm: float
 var direction: int = 0
 var radius: float

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LevelEvent" format=3 uid="uid://gsx3bmmn7ej4"]
+
+[ext_resource type="Script" uid="uid://vp8532ufoyds" path="res://scripts/levels/level_event/level_event.gd" id="1_jmt4i"]
+[ext_resource type="Resource" uid="uid://cj2necjhpguns" path="res://aseets/resources/pattern.tres" id="1_mg6rt"]
+
+[resource]
+script = ExtResource("1_jmt4i")
+id = 1

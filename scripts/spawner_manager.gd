@@ -2,31 +2,67 @@ extends Node2D
 
 @export var ring: Node2D
 
+var bossfight: Resource = preload("res://aseets/resources/levels/bossfight.tres")
 var patterns: Dictionary = {
-	"tile_pattern": preload("res://scenes/patterns/tile_pattern.tscn"),
+	Pattern.BulletPattern.TILE_PATTERN: preload("res://scenes/patterns/tile_pattern.tscn"),
 }
 var bullets: Dictionary = {
-	"tile_bullets": preload("res://scenes/bullets/tile_bullet.tscn"),
+	Pattern.BulletType.TILE_BULLET: preload("res://scenes/bullets/tile_bullet.tscn"),
 }
-var bullet_configs: Dictionary = {
-	"short_bullet_config": preload("res://scenes/bullets/bullet_configs/short_bullet_config.tres"),
-	"wide_bullet_config": preload("res://scenes/bullets/bullet_configs/wide_bullet_config.tres"),
-}
+
+var time: float = 0.0
+var bpm: float = 0.0
+var current_level: Resource
+var events_id: Dictionary
 
 func _ready() -> void:
 	#start_pattern("tile_pattern", "tile_bullets", "short_bullet_config")
-	start_pattern("tile_pattern", "tile_bullets", "wide_bullet_config")
+	#start_pattern("tile_pattern", "tile_bullets", "wide_bullet_config")
+	start_level(bossfight)
+	#start_pattern(Pattern.BulletPattern.TILE_PATTERN, Pattern.BulletType.TILE_BULLET, Bull)
 
-func start_pattern(pattern_id: String, bullet_id: String, bullet_config: String) -> void:
+func _process(delta: float) -> void:
+	if not current_level:
+		return
+	
+	var events: Array = current_level.events
+	events.sort_custom(func(a, b): return a.time > b.time)
+	for event in events:
+		if time >= event.time:
+			match event.event_type:
+				LevelEvent.EventType.START:
+					if not events_id.has(event.id):
+						var pattern: Pattern = event.pattern
+						start_pattern(event.id, pattern.bullet_pattern, pattern.bullet_type, pattern.bullet_config)
+				LevelEvent.EventType.STOP:
+					if events_id.has(event.id):
+						stop_pattern(event.id)
+			break
+	
+	time += delta
+
+func start_level(level: Resource) -> void:
+	bpm = level.bpm
+	current_level = level
+
+func start_pattern(id: int, pattern_id: Pattern.BulletPattern, bullet_id: Pattern.BulletType, bullet_config: BulletConfig) -> void:
 	var pattern: SpawnPattern
-	if pattern_id:
+	if pattern_id != null:
 		pattern = patterns[pattern_id].instantiate()
+		events_id[id] = pattern
 	if pattern:
 		add_child(pattern)
 		pattern.ring = ring
-		if bullet_id:
+		if bullet_id != null:
 			var bullet = bullets[bullet_id]
-			if bullet_config:
-				pattern.spawn(bullet, bullet_configs[bullet_config])
-			else:
-				pattern.spawn(bullet, null)
+			if bullet_config != null:
+				pattern.spawn(id, bullet, bullet_config, bpm)
+
+func stop_pattern(id: int) -> void:
+	if events_id[id]:
+		events_id[id].queue_free()
+	
+	for obj in ring.get_children():
+		if "id" in obj:
+			if obj.id == id:
+				obj.queue_free()

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" format=3 uid="uid://bpgppm6ryr00h"]
+
+[ext_resource type="Script" uid="uid://vp8532ufoyds" path="res://scripts/levels/level_event/level_event.gd" id="1_db715"]
+[ext_resource type="Script" uid="uid://b3i0i88tiylth" path="res://scripts/levels/level.gd" id="2_6pcel"]
+[ext_resource type="Resource" uid="uid://gsx3bmmn7ej4" path="res://aseets/resources/levels/level_event/level_event.tres" id="2_hmh47"]
+[ext_resource type="Resource" uid="uid://cj2necjhpguns" path="res://aseets/resources/pattern.tres" id="3_hmh47"]
+
+[sub_resource type="Resource" id="Resource_wfppf"]
+script = ExtResource("1_db715")
+time = 2.0
+id = 1
+event_type = 1
+metadata/_custom_type_script = "uid://vp8532ufoyds"
+
+[resource]
+script = ExtResource("2_6pcel")
+bpm = 150.0
+events = Array[ExtResource("1_db715")]([ExtResource("2_hmh47"), SubResource("Resource_wfppf")])
