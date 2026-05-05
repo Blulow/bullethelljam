@@ -7,4 +7,4 @@ class_name TileBulletConfig
 @export var DIRECTION: float = 0
 
 @export var COUNT: Array = [4, 7]
-@export var SPAWNER_DIRECTION: int = 2
+@export var SPAWNER_DIRECTION: float = 2

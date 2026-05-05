@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var HORIZONTAL_SPEED: float = 5.0
-@export var VERTICAL_SPEED: float = 200.0
+@export var HORIZONTAL_SPEED: float = 300.0
+@export var VERTICAL_SPEED: float = 300.0
 @export var MIN_RADIUS: float = 25.0
 @export var MAX_RADIUS: float = 225.0
 @export var ring: Node2D
@@ -18,10 +18,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	direction = Vector2.ZERO
 	
+	var step = 1/radius
 	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
+		direction.x -= step
 	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
+		direction.x += step
 	
 	if Input.is_action_pressed("ui_up"):
 		if (radius < MAX_RADIUS - $Sprite2D.texture.get_size().y / 2):

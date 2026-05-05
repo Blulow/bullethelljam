@@ -7,7 +7,7 @@ extends Node2D
 var id: int
 
 var bpm: float
-var direction: int = 0
+var direction: float = 0.0
 var radius: float
 var angle: float
 var bullet_config: Resource
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	position = Vector2.from_angle(angle) * radius
 	rotation = angle + PI / 2
 
-func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: int, spawn_bullet_config: Resource, spawn_bullet_scene: PackedScene, spawn_ring: Node2D, spawn_bpm: float) -> void:
+func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: float, spawn_bullet_config: Resource, spawn_bullet_scene: PackedScene, spawn_ring: Node2D, spawn_bpm: float) -> void:
 	bpm = spawn_bpm
 	timer.wait_time = 60 / bpm
 	
