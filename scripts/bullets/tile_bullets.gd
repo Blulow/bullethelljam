@@ -13,7 +13,7 @@ var config: Resource
 @onready var collision = $CollisionPolygon2D
 @onready var tile_bullet_helper = preload("res://scripts/bullets/TileBulletHelper.cs").new()
 
-var direction: int
+var direction: float
 var rot: float
 var radius: float = 0.0
 var start_radius: float = 0.0
