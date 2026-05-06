@@ -6,9 +6,11 @@ class_name Pattern
 @export var bullet_config: BulletConfig
 
 enum BulletPattern {
-	TILE_PATTERN
+	TILE_PATTERN,
+	DOT_PATTERN
 }
 
 enum BulletType {
-	TILE_BULLET
+	TILE_BULLET,
+	DOT_BULLET
 }

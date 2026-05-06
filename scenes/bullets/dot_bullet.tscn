@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dpf8eqcw0xcnf"]
+
+[ext_resource type="Script" uid="uid://cfa0ekabxhomu" path="res://scripts/bullets/dot_bullets.gd" id="1_qibee"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qibee"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oc2mv"]
+
+[node name="DotBullet" type="Area2D" unique_id=1092526798]
+script = ExtResource("1_qibee")
+
+[node name="Telegraph" type="MeshInstance2D" parent="." unique_id=49062804]
+visible = false
+modulate = Color(1, 0, 0, 0.163)
+mesh = SubResource("SphereMesh_qibee")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=522495918]
+visible = false
+mesh = SubResource("SphereMesh_qibee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=570276815]
+visible = false
+shape = SubResource("CircleShape2D_oc2mv")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpct4ose3tny2"]
+
+[ext_resource type="Script" uid="uid://pdwjtahty3wj" path="res://scripts/patterns/dot_pattern.gd" id="1_sr38o"]
+
+[node name="DotPattern" type="Node2D" unique_id=90852943]
+script = ExtResource("1_sr38o")

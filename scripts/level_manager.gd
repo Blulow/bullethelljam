@@ -7,9 +7,11 @@ extends Node2D
 var bossfight: Resource = preload("res://aseets/resources/levels/bossfight.tres")
 var patterns: Dictionary = {
 	Pattern.BulletPattern.TILE_PATTERN: preload("res://scenes/patterns/tile_pattern.tscn"),
+	Pattern.BulletPattern.DOT_PATTERN: preload("res://scenes/patterns/dot_pattern.tscn"),
 }
 var bullets: Dictionary = {
 	Pattern.BulletType.TILE_BULLET: preload("res://scenes/bullets/tile_bullet.tscn"),
+	Pattern.BulletType.DOT_BULLET: preload("res://scenes/bullets/dot_bullet.tscn"),
 }
 
 var time: float = 0.0
@@ -18,7 +20,6 @@ var current_level: Resource
 var events_id: Dictionary
 
 func _ready() -> void:
-	time = 104
 	start_level(bossfight)
 
 func _process(delta: float) -> void:

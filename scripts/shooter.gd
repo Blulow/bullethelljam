@@ -37,7 +37,10 @@ func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
 	bullet.modulate = Color(0, 1, 0)
-	bullet.radius = radius
+	if "radius" in bullet:
+		bullet.radius = radius
+	if "id" in bullet:
+		bullet.id = id
 	bullet.shoot(global_position, global_rotation, ring, bullet_config)
 
 func _on_timer_timeout() -> void:
