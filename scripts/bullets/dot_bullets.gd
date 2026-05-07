@@ -18,7 +18,7 @@ var telegraphed_timer: float = 0.0
 var expanded: bool = false
 var stay_timer: float = 0.0
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not telegraphed and not expanded:
 		telegraph.visible = true
 		telegraphed_timer += delta
@@ -61,3 +61,6 @@ func load_bullet_config(bullet_config: DotBulletConfig) -> void:
 	SIZE = bullet_config.SIZE
 	STAY = bullet_config.STAY
 	TELEGRAPH_TIME = bullet_config.TELEGRAPH_TIME
+
+func _on_area_entered(area: Area2D) -> void:
+	super(area)

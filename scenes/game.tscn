@@ -15,12 +15,24 @@ glow_strength = 1.8
 
 [node name="Ring" parent="." unique_id=98641754 instance=ExtResource("1_uwrxv")]
 
-[node name="Player" parent="." unique_id=348530264 node_paths=PackedStringArray("ring") instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="." unique_id=348530264 node_paths=PackedStringArray("ring", "hits_label") instance=ExtResource("2_yqjtg")]
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 ring = NodePath("../Ring")
+hits_label = NodePath("../CanvasLayer/Label")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1713068081]
 environment = SubResource("Environment_lnu2h")
 
 [node name="LevelManager" parent="." unique_id=1301305508 node_paths=PackedStringArray("ring") instance=ExtResource("4_lbhrr")]
 ring = NodePath("../Ring")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1390887426]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1444597909]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Hits: 0"

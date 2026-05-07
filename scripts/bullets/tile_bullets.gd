@@ -22,6 +22,11 @@ var ring: Node2D
 var t: float = 0.0
 var t_out: float = 0.0
 
+func _physics_process(delta: float) -> void:
+	if ring:
+		shape.polygon = tile_bullet_helper.GeneratePolygonHelper(ANGLE, LENGTH, radius, 20, global_rotation, self, ring)
+		collision.polygon = tile_bullet_helper.GeneratePolygonHelper(ANGLE, LENGTH, radius, 5, global_rotation, self, ring)
+
 func _process(delta: float) -> void:
 	t += delta * SPEED
 	radius = lerp(start_radius, MIN_RADIUS, t**2)
@@ -30,17 +35,10 @@ func _process(delta: float) -> void:
 		radius = lerp(-MIN_RADIUS, -ABNORMAL_END_RADIUS - 10, 1 - (1-t_out)**2)
 		modulate = Color(1, 1, 0)
 	
-	if ring:
-		var points: PackedVector2Array = tile_bullet_helper.GeneratePolygonHelper(ANGLE, LENGTH, radius, global_rotation, self, ring)
-		shape.polygon = points
-		collision.polygon = points
-	
 	global_rotation += direction * PAN_SPEED * delta
+	position = to_rec(Vector2(radius, global_rotation - PI / 2))
 	
-	if not ABNORMAL:
-		if radius <= MIN_RADIUS:
-			queue_free()
-	else:
+	if ABNORMAL:
 		if radius <= -ABNORMAL_END_RADIUS:
 			queue_free()
 
@@ -60,3 +58,12 @@ func load_bullet_config(bullet_config: TileBulletConfig) -> void:
 	LENGTH = bullet_config.LENGTH
 	ABNORMAL = bullet_config.ABNORMAL
 	direction = bullet_config.DIRECTION
+
+func to_rec(pol: Vector2):
+	return Vector2(pol.x * cos(pol.y), pol.x * sin(pol.y))
+
+func _on_area_entered(area: Area2D) -> void:
+	super(area)
+	if not ABNORMAL:
+		if area.is_in_group("inner_ring"):
+			queue_free()

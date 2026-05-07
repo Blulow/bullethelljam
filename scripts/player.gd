@@ -5,10 +5,13 @@ extends Area2D
 @export var MIN_RADIUS: float = 25.0
 @export var MAX_RADIUS: float = 225.0
 @export var ring: Node2D
+@export var hits_label: Label
 
 var radius: float = 0.0
 var direction: Vector2
 var angle: float = 0.0
+
+var hits: int = 0
 
 var bullet_scene: PackedScene = preload("res://scenes/bullets/player_bullet.tscn")
 
@@ -44,3 +47,7 @@ func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
 	bullet.shoot(global_position, global_rotation - PI / 2, ring)
+
+func hit() -> void:
+	hits += 1
+	hits_label.text = "Hits: " + str(hits)

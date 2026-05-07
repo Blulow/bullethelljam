@@ -29,6 +29,7 @@ project/assembly_name="bullethelljam"
 
 bullet=""
 inner_ring=""
+player=""
 
 [physics]
 

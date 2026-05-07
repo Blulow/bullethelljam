@@ -10,3 +10,7 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("inner_ring"):
 		queue_free()
+	if area.is_in_group("player"):
+		if area.has_method("hit"):
+			area.hit()
+		modulate = Color(1, 0, 1)
