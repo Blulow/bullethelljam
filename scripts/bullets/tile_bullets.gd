@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	if radius < 0:
 		t_out = t - 1
 		radius = lerp(-MIN_RADIUS, -ABNORMAL_END_RADIUS - 10, 1 - (1-t_out)**2)
-		modulate = Color(1, 1, 0)
+		$Sprite.modulate = Color(1, 0, 1)
 	
 	global_rotation += direction * PAN_SPEED * delta
 	position = to_rec(Vector2(radius, global_rotation - PI / 2))

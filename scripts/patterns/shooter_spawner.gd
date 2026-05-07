@@ -15,9 +15,7 @@ func spawn_shooter(id: int, radius: float, angle: float, direction: float, shoot
 	shooter.id = id
 	shooter.bullet_color = bullet_color
 	shooter.get_node("Sprite2D").texture = shooter_sprite
+	shooter.get_node("Sprite2D").offset = Vector2(0, -40)
 	if bullet_config is TileBulletConfig:
 		shooter.get_node("Sprite2D").scale = Vector2(0.5, 0.5)
-	else: 
-		shooter.get_node("Sprite2D").scale = Vector2(0.1, 0.1)
-		#shooter.get_node("Sprite2D").self_modulate.a = 0.5
 	shooter.spawn(radius, angle, direction, bullet_config, bullet_scene, ring, bpm)
