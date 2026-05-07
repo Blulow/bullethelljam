@@ -1,7 +1,9 @@
 extends SpawnPattern
 
-@export var MIN_RADIUS: float = 25.0
-@export var MAX_RADIUS: float = 225.0
+@export var MIN_RADIUS: float = 37.0
+@export var MAX_RADIUS: float = 283.0
+
+var dot: Texture2D = preload("res://aseets/images/shooters/dot/dot.PNG")
 
 func spawn(id: int, bullet: PackedScene, bullet_config: Resource, default_bpm: float) -> void:
 	super(id, bullet, bullet_config, default_bpm)
@@ -11,7 +13,7 @@ func spawn(id: int, bullet: PackedScene, bullet_config: Resource, default_bpm: f
 	
 	var points: Array[Vector2] = generate_points(bullet_config.DIST)
 	for point in points:
-		spawn_shooter(id, point.x, point.y, 0, bullet_config, bpm)
+		spawn_shooter(id, point.x, point.y, 0, null, Color(1, 0, 0), bullet_config, bpm)
 
 func generate_points(dist: float) -> Array[Vector2]:
 	var points: Array[Vector2]

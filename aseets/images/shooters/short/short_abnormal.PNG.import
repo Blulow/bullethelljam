@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crarhxd05xwqi"
-path="res://.godot/imported/player.PNG-f0c16d036bb178fd1925ab5c5587f7d4.ctex"
+uid="uid://dl5fcypyga5ju"
+path="res://.godot/imported/short_abnormal.PNG-cbdae512a7cf96b14a1d94c1aa46f39c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseets/images/player.PNG"
-dest_files=["res://.godot/imported/player.PNG-f0c16d036bb178fd1925ab5c5587f7d4.ctex"]
+source_file="res://aseets/images/shooters/short/short_abnormal.PNG"
+dest_files=["res://.godot/imported/short_abnormal.PNG-cbdae512a7cf96b14a1d94c1aa46f39c.ctex"]
 
 [params]
 

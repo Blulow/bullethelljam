@@ -15,6 +15,8 @@ var bullet_config: Resource
 var ring: Node2D
 var bullet_scene: PackedScene
 
+var bullet_color: Color
+
 func _process(delta: float) -> void:
 	angle += direction * SPEED * delta
 	
@@ -28,7 +30,7 @@ func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: float, spaw
 	bullet_scene = spawn_bullet_scene
 	ring = spawn_ring
 	angle = spawn_angle
-	radius = spawn_radius - $Sprite2D.texture.get_size().y / 2
+	radius = spawn_radius - ($Sprite2D.texture.get_size().y / 2 if $Sprite2D.texture else 0) 
 	direction = spawn_direction
 	if spawn_bullet_config:
 		bullet_config = spawn_bullet_config
@@ -36,7 +38,7 @@ func spawn(spawn_radius: float, spawn_angle: float, spawn_direction: float, spaw
 func shoot() -> void:
 	var bullet: Node2D = bullet_scene.instantiate()
 	ring.add_child(bullet)
-	bullet.modulate = Color(0, 1, 0)
+	bullet.get_node("Sprite").modulate = bullet_color
 	if "radius" in bullet:
 		bullet.radius = radius
 	if "id" in bullet:

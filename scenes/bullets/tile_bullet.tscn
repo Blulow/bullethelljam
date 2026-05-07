@@ -5,9 +5,11 @@
 [node name="TileBullet" type="Area2D" unique_id=1092526798 groups=["bullet"]]
 script = ExtResource("1_d5nlv")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=821259654]
-modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1228792728]
+
+[node name="Sprite" type="Node2D" parent="." unique_id=556817096]
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite" unique_id=821259654]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

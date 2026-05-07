@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crarhxd05xwqi"
-path="res://.godot/imported/player.PNG-f0c16d036bb178fd1925ab5c5587f7d4.ctex"
+uid="uid://dwra8n6ppwjpw"
+path="res://.godot/imported/short_panleft.PNG-f60028290664dc8d3832665bcc4f6a2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseets/images/player.PNG"
-dest_files=["res://.godot/imported/player.PNG-f0c16d036bb178fd1925ab5c5587f7d4.ctex"]
+source_file="res://aseets/images/shooters/short/short_panleft.PNG"
+dest_files=["res://.godot/imported/short_panleft.PNG-f60028290664dc8d3832665bcc4f6a2a.ctex"]
 
 [params]
 

@@ -9,7 +9,7 @@ extends Bullet
 @export var PAN_SPEED: float = 3.0
 var config: Resource
 
-@onready var shape = $Polygon2D
+@onready var shape = $Sprite/Polygon2D
 @onready var collision = $CollisionPolygon2D
 @onready var tile_bullet_helper = preload("res://scripts/bullets/TileBulletHelper.cs").new()
 

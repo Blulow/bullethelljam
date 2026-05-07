@@ -2,8 +2,8 @@ extends Area2D
 
 @export var HORIZONTAL_SPEED: float = 300.0
 @export var VERTICAL_SPEED: float = 300.0
-@export var MIN_RADIUS: float = 25.0
-@export var MAX_RADIUS: float = 225.0
+@export var MIN_RADIUS: float = 37.0
+@export var MAX_RADIUS: float = 283.0
 @export var ring: Node2D
 @export var hits_label: Label
 

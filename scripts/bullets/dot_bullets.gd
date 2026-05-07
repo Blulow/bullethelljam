@@ -7,7 +7,7 @@ extends Bullet
 var config: Resource
 var id: int
 
-@onready var shape = $MeshInstance2D
+@onready var shape = $Sprite/MeshInstance2D
 @onready var collision = $CollisionShape2D
 @onready var telegraph = $Telegraph
 

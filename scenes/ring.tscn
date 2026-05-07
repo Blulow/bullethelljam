@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cy3ipl87jet2m"]
 
-[ext_resource type="Texture2D" uid="uid://def0f3tm02d1o" path="res://aseets/images/ring.png" id="1_03kdj"]
+[ext_resource type="Texture2D" uid="uid://cq7dnacolprdc" path="res://aseets/images/ring.PNG" id="1_03kdj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03kdj"]
-radius = 25.0
+radius = 37.0
 
 [node name="Ring" type="Node2D" unique_id=98641754]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=206360663]
+scale = Vector2(0.855, 0.855)
 texture = ExtResource("1_03kdj")
 
 [node name="InnerRing" type="Area2D" parent="." unique_id=630387788 groups=["inner_ring"]]

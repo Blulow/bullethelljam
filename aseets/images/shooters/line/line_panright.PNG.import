@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dey1wi8r0jt07"
-path="res://.godot/imported/shooter.png-680f19c84ec06fe2dbac8560095735f5.ctex"
+uid="uid://du02ml7jvbtd4"
+path="res://.godot/imported/line_panright.PNG-392e9b594002c218ab8899d379bff1e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseets/images/shooter.png"
-dest_files=["res://.godot/imported/shooter.png-680f19c84ec06fe2dbac8560095735f5.ctex"]
+source_file="res://aseets/images/shooters/line/line_panright.PNG"
+dest_files=["res://.godot/imported/line_panright.PNG-392e9b594002c218ab8899d379bff1e9.ctex"]
 
 [params]
 
