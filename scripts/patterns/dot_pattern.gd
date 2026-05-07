@@ -3,7 +3,7 @@ extends SpawnPattern
 @export var MIN_RADIUS: float = 37.0
 @export var MAX_RADIUS: float = 283.0
 
-var dot: Texture2D = preload("res://aseets/images/shooters/dot/dot.PNG")
+var dot: Texture2D = preload("res://assets/images/shooters/dot/dot.PNG")
 
 func spawn(id: int, bullet: PackedScene, bullet_config: Resource, default_bpm: float) -> void:
 	super(id, bullet, bullet_config, default_bpm)

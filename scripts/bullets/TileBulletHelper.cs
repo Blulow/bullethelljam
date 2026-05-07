@@ -21,7 +21,9 @@ public partial class TileBulletHelper : Node
 		i = angle / 2;
         while (i >= -angle / 2)
         {
-            points.Add(tileBullet.ToLocal(ring.ToGlobal(Vector2.FromAngle((float)(i + rotation - Math.PI / 2)) * (radius - length))));
+            float r = radius - length;
+            if (radius < 0) r = radius + length;
+            points.Add(tileBullet.ToLocal(ring.ToGlobal(Vector2.FromAngle((float)(i + rotation - Math.PI / 2)) * r)));
             i -= step;
         }
 

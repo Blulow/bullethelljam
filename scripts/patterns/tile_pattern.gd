@@ -5,18 +5,18 @@ var tile_bullet_effect_type: Array[String] = ["panleft", "panright", "abnormal"]
 
 var bullet_colors: Array[Color] = [Color(0, 1, 0), Color(1, 1, 0), Color(1, 0.5, 0)]
 
-var line: Texture2D = preload("res://aseets/images/shooters/line/line.PNG")
-var line_panleft: Texture2D = preload("res://aseets/images/shooters/line/line_panleft.PNG")
-var line_panright: Texture2D = preload("res://aseets/images/shooters/line/line_panright.PNG")
-var line_abnormal: Texture2D = preload("res://aseets/images/shooters/line/line_abnormal.PNG")
-var short: Texture2D = preload("res://aseets/images/shooters/short/short.PNG")
-var short_panleft: Texture2D = preload("res://aseets/images/shooters/short/short_panleft.PNG")
-var short_panright: Texture2D = preload("res://aseets/images/shooters/short/short_panright.PNG")
-var short_abnormal: Texture2D = preload("res://aseets/images/shooters/short/short_abnormal.PNG")
-var long: Texture2D = preload("res://aseets/images/shooters/long/long.PNG")
-var long_panleft: Texture2D = preload("res://aseets/images/shooters/long/long_panleft.PNG")
-var long_panright: Texture2D = preload("res://aseets/images/shooters/long/long_panright.PNG")
-var long_abnormal: Texture2D = preload("res://aseets/images/shooters/long/long_abnormal.PNG")
+var line: Texture2D = preload("res://assets/images/shooters/line/line.PNG")
+var line_panleft: Texture2D = preload("res://assets/images/shooters/line/line_panleft.PNG")
+var line_panright: Texture2D = preload("res://assets/images/shooters/line/line_panright.PNG")
+var line_abnormal: Texture2D = preload("res://assets/images/shooters/line/line_abnormal.PNG")
+var short: Texture2D = preload("res://assets/images/shooters/short/short.PNG")
+var short_panleft: Texture2D = preload("res://assets/images/shooters/short/short_panleft.PNG")
+var short_panright: Texture2D = preload("res://assets/images/shooters/short/short_panright.PNG")
+var short_abnormal: Texture2D = preload("res://assets/images/shooters/short/short_abnormal.PNG")
+var long: Texture2D = preload("res://assets/images/shooters/long/long.PNG")
+var long_panleft: Texture2D = preload("res://assets/images/shooters/long/long_panleft.PNG")
+var long_panright: Texture2D = preload("res://assets/images/shooters/long/long_panright.PNG")
+var long_abnormal: Texture2D = preload("res://assets/images/shooters/long/long_abnormal.PNG")
 
 func spawn(id: int, bullet: PackedScene, bullet_config: Resource, default_bpm: float) -> void:
 	super(id, bullet, bullet_config, default_bpm)

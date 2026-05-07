@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var song = $AudioStreamPlayer
 
-var bossfight: Resource = preload("res://aseets/resources/levels/bossfight.tres")
+var bossfight: Resource = preload("res://assets/resources/levels/bossfight.tres")
 var patterns: Dictionary = {
 	Pattern.BulletPattern.TILE_PATTERN: preload("res://scenes/patterns/tile_pattern.tscn"),
 	Pattern.BulletPattern.DOT_PATTERN: preload("res://scenes/patterns/dot_pattern.tscn"),
@@ -20,6 +20,7 @@ var current_level: Resource
 var events_id: Dictionary
 
 func _ready() -> void:
+	time = 180
 	start_level(bossfight)
 
 func _process(delta: float) -> void:

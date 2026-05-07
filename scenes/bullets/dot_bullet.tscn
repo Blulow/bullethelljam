@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpf8eqcw0xcnf"]
 
 [ext_resource type="Script" uid="uid://cfa0ekabxhomu" path="res://scripts/bullets/dot_bullets.gd" id="1_qibee"]
-[ext_resource type="Texture2D" uid="uid://dic25uwasy5yl" path="res://aseets/images/shooters/dot/dot.PNG" id="2_oc2mv"]
+[ext_resource type="Texture2D" uid="uid://dic25uwasy5yl" path="res://assets/images/shooters/dot/dot.PNG" id="2_oc2mv"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qibee"]
 radius = 10.0

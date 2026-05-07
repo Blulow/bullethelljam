@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://cei8wpxyu742m"]
+
+[ext_resource type="Script" uid="uid://d1i6nqiy83wai" path="res://results.gd" id="1_r4wmc"]
+[ext_resource type="Texture2D" uid="uid://b88k62tnj0dki" path="res://assets/images/results/gate_left.png" id="2_s58my"]
+[ext_resource type="Texture2D" uid="uid://dhglg1vg23cqv" path="res://assets/images/results/gate_right.png" id="3_w6ibn"]
+
+[sub_resource type="Animation" id="Animation_ph3j5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GateLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-198, 450)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GateRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1700, 450)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Results:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Hits:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(139, 281)]
+}
+
+[sub_resource type="Animation" id="Animation_r4wmc"]
+resource_name = "rank"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Rank:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, -100), Vector2(980, 131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/RankScore:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2q2pa"]
+resource_name = "results"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GateLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 450), Vector2(800, 450)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GateRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1800, 450), Vector2(800, 450)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Results:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-700, 6), Vector2(118, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Hits:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.23333333, 0.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, -100), Vector2(139, 281)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.73333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_hit_count"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujvko"]
+_data = {
+&"RESET": SubResource("Animation_ph3j5"),
+&"rank": SubResource("Animation_r4wmc"),
+&"results": SubResource("Animation_2q2pa")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_44tbk"]
+font_size = 174
+font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uev3"]
+font_size = 105
+font_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4wmc"]
+font_size = 403
+font_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s58my"]
+font_size = 105
+font_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6ibn"]
+font_size = 739
+font_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+
+[node name="Results" type="Node2D" unique_id=983693596]
+script = ExtResource("1_r4wmc")
+
+[node name="GateLeft" type="Sprite2D" parent="." unique_id=1459576675]
+position = Vector2(-198, 450)
+texture = ExtResource("2_s58my")
+
+[node name="GateRight" type="Sprite2D" parent="." unique_id=158339343]
+position = Vector2(1700, 450)
+texture = ExtResource("3_w6ibn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=509704134]
+libraries/ = SubResource("AnimationLibrary_ujvko")
+autoplay = &"results"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=441802496]
+
+[node name="Results" type="Label" parent="CanvasLayer" unique_id=306615635]
+offset_left = 118.0
+offset_top = 6.0
+offset_right = 727.0
+offset_bottom = 243.0
+text = "Results"
+label_settings = SubResource("LabelSettings_44tbk")
+
+[node name="Hits" type="Label" parent="CanvasLayer" unique_id=1704288824]
+offset_left = 139.0
+offset_top = 281.0
+offset_right = 396.0
+offset_bottom = 425.0
+text = "Hits: "
+label_settings = SubResource("LabelSettings_6uev3")
+
+[node name="HitCount" type="Label" parent="CanvasLayer" unique_id=963253421]
+visible = false
+offset_left = 21.0
+offset_top = 354.0
+offset_right = 730.0
+offset_bottom = 904.0
+text = "0"
+label_settings = SubResource("LabelSettings_r4wmc")
+horizontal_alignment = 1
+
+[node name="Rank" type="Label" parent="CanvasLayer" unique_id=2094567264]
+offset_left = -300.0
+offset_top = -100.0
+offset_right = -16.0
+offset_bottom = 44.0
+text = "Rank:"
+label_settings = SubResource("LabelSettings_s58my")
+
+[node name="RankScore" type="Label" parent="CanvasLayer" unique_id=59079163]
+visible = false
+offset_left = 991.0
+offset_top = 39.0
+offset_right = 1397.0
+offset_bottom = 1046.0
+label_settings = SubResource("LabelSettings_w6ibn")

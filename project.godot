@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bullethelljam"
-run/main_scene="uid://owliqsgna3vi"
+run/main_scene="uid://cei8wpxyu742m"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 
 [display]
