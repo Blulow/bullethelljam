@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dkdx5pyhlppi8" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://crarhxd05xwqi" path="res://assets/images/player.PNG" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bbjn42ubcdpvr" path="res://assets/images/shrink_cooldown.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cr6ds4c7ltan0" path="res://assets/images/shrink_use_cooldown.png" id="4_dqkch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
 
@@ -15,3 +17,23 @@ texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331652492]
 shape = SubResource("CircleShape2D_u8vuu")
+
+[node name="Cooldowns" type="Node2D" parent="." unique_id=782632341]
+
+[node name="ShrinkCooldown" type="TextureProgressBar" parent="Cooldowns" unique_id=1990068623]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 75.0
+scale = Vector2(0.49608913, 0.49608913)
+fill_mode = 4
+texture_progress = ExtResource("3_qhqgy")
+
+[node name="ShrinkUseCooldown" type="TextureProgressBar" parent="Cooldowns" unique_id=1700078737]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 75.0
+scale = Vector2(0.49608913, 0.49608913)
+fill_mode = 4
+texture_progress = ExtResource("4_dqkch")

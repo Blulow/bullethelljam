@@ -20,7 +20,6 @@ var current_level: Resource
 var events_id: Dictionary
 
 func _ready() -> void:
-	time = 180
 	start_level(bossfight)
 
 func _process(delta: float) -> void:
