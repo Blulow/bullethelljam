@@ -7,8 +7,8 @@ extends Area2D
 @export var ring: Node2D
 @export var hits_label: Label
 
-@export var SHRINK_COOLDOWN = 1.0
-@export var SHRINK_USE_COOLDOWN = 3.0
+@export var SHRINK_COOLDOWN: float = 1.0
+@export var SHRINK_USE_COOLDOWN: float = 3.0
 
 var radius: float = 0.0
 var direction: Vector2
@@ -27,9 +27,6 @@ func _ready() -> void:
 	radius = MIN_RADIUS + $Sprite2D.texture.get_size().y / 2
 
 func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("shrink"):
-		#shrink_disabled = false
-	
 	if not shrink_disabled:
 		if Input.is_action_pressed("shrink"):
 			shrink = true
@@ -105,3 +102,4 @@ func hit() -> void:
 	GameData.hits += 1
 	hits = GameData.hits
 	hits_label.text = "Hits: " + str(hits)
+	

@@ -22,6 +22,7 @@ var rank: String = ""
 func _ready() -> void:
 	rank_label.visible = false
 	$CanvasLayer/TheEnd.visible = false
+	$CanvasLayer/Retry.visible = false
 	hits = GameData.hits
 	rank = get_rank(hits)
 	rank_label.texture = get(rank)

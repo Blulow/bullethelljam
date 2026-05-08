@@ -17,7 +17,18 @@ var bullet_scene: PackedScene
 
 var bullet_color: Color
 
+var shoot_anim: bool = false
+
 func _process(delta: float) -> void:
+	if shoot_anim:
+		if $Sprite2D.scale.y < 0.6:
+			$Sprite2D.scale.y += 0.1
+		else:
+			shoot_anim = false
+	else:
+		if $Sprite2D.scale.y > 0.5:
+			$Sprite2D.scale.y -= 0.01
+	
 	angle += direction * SPEED * delta
 	
 	position = Vector2.from_angle(angle) * radius
@@ -43,6 +54,7 @@ func shoot() -> void:
 		bullet.radius = radius
 	if "id" in bullet:
 		bullet.id = id
+	shoot_anim = true
 	bullet.shoot(global_position, global_rotation, ring, bullet_config)
 
 func _on_timer_timeout() -> void:

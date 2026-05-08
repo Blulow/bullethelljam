@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmwbqs5tteu64" path="res://assets/images/results/retry.png" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://ltd0k7ixrpd6" path="res://assets/images/results/retry_pressed.png" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://di08ysd7ig72b" path="res://assets/images/results/retry_hover.png" id="6_gee14"]
-[ext_resource type="Script" uid="uid://dykuptiitv6fn" path="res://scenes/retry.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://dykuptiitv6fn" path="res://scripts/retry.gd" id="7_u5sy4"]
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 3
