@@ -73,3 +73,7 @@ func stop_pattern(id: int) -> void:
 		if "id" in obj:
 			if obj.id == id:
 				obj.queue_free()
+
+
+func _on_audio_stream_player_finished() -> void:
+	get_tree().change_scene_to_file("res://scenes/results.tscn")

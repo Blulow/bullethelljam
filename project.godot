@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="bullethelljam"
-run/main_scene="uid://cei8wpxyu742m"
+run/main_scene="uid://cb7jko4oddp8f"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+
+[autoload]
+
+GameData="*uid://d1uryk888ak6r"
 
 [display]
 

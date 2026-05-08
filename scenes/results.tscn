@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cei8wpxyu742m"]
 
-[ext_resource type="Script" uid="uid://d1i6nqiy83wai" path="res://results.gd" id="1_r4wmc"]
+[ext_resource type="Script" uid="uid://d1i6nqiy83wai" path="res://scripts/results.gd" id="1_r4wmc"]
 [ext_resource type="Texture2D" uid="uid://b88k62tnj0dki" path="res://assets/images/results/gate_left.png" id="2_s58my"]
 [ext_resource type="Texture2D" uid="uid://dhglg1vg23cqv" path="res://assets/images/results/gate_right.png" id="3_w6ibn"]
 
@@ -54,6 +54,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(139, 281)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/RankScore:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/TheEnd:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_r4wmc"]
 resource_name = "rank"
@@ -76,7 +100,19 @@ tracks/1/path = NodePath("CanvasLayer/RankScore:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.46666667),
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/TheEnd:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.73333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -171,8 +207,8 @@ font_size = 105
 font_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w6ibn"]
-font_size = 739
-font_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+font_size = 30
+font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 
 [node name="Results" type="Node2D" unique_id=983693596]
 script = ExtResource("1_r4wmc")
@@ -203,7 +239,7 @@ label_settings = SubResource("LabelSettings_44tbk")
 offset_left = 139.0
 offset_top = 281.0
 offset_right = 396.0
-offset_bottom = 425.0
+offset_bottom = 425.00003
 text = "Hits: "
 label_settings = SubResource("LabelSettings_6uev3")
 
@@ -218,17 +254,21 @@ label_settings = SubResource("LabelSettings_r4wmc")
 horizontal_alignment = 1
 
 [node name="Rank" type="Label" parent="CanvasLayer" unique_id=2094567264]
-offset_left = -300.0
-offset_top = -100.0
-offset_right = -16.0
-offset_bottom = 44.0
+offset_left = 980.0
+offset_top = 131.0
+offset_right = 1264.0
+offset_bottom = 275.0
 text = "Rank:"
 label_settings = SubResource("LabelSettings_s58my")
 
-[node name="RankScore" type="Label" parent="CanvasLayer" unique_id=59079163]
-visible = false
-offset_left = 991.0
-offset_top = 39.0
-offset_right = 1397.0
-offset_bottom = 1046.0
+[node name="RankScore" type="Sprite2D" parent="CanvasLayer" unique_id=54428479]
+position = Vector2(1225.0001, 556.00006)
+scale = Vector2(1.184, 1.184)
+
+[node name="TheEnd" type="Label" parent="CanvasLayer" unique_id=633334467]
+offset_left = 1325.0
+offset_top = 8.0
+offset_right = 1583.0
+offset_bottom = 50.0
+text = "The End (so far :P)"
 label_settings = SubResource("LabelSettings_w6ibn")

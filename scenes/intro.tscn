@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cb7jko4oddp8f"]
+
+[ext_resource type="Texture2D" uid="uid://csj5umwtfbnv8" path="res://assets/images/intro/play.png" id="1_i2l1n"]
+[ext_resource type="Script" uid="uid://efeo767ll1r7" path="res://scripts/intro.gd" id="1_wfs7u"]
+[ext_resource type="Texture2D" uid="uid://b612ah8r5556w" path="res://assets/images/intro/play_pressed.png" id="2_wfs7u"]
+[ext_resource type="Texture2D" uid="uid://qluoiluv7012" path="res://assets/images/intro/play_hover.png" id="3_es01l"]
+[ext_resource type="Texture2D" uid="uid://coffgv53d3ow3" path="res://assets/images/logo.png" id="4_0naf5"]
+
+[sub_resource type="Animation" id="Animation_i2l1n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(796, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Play:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(712, 542)]
+}
+
+[sub_resource type="Animation" id="Animation_wfs7u"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(796, -250), Vector2(796, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Play:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(712, 1000), Vector2(712, 542)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_es01l"]
+_data = {
+&"RESET": SubResource("Animation_i2l1n"),
+&"intro": SubResource("Animation_wfs7u")
+}
+
+[node name="Intro" type="Node2D" unique_id=69801020]
+script = ExtResource("1_wfs7u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1188765689]
+
+[node name="Play" type="TextureButton" parent="CanvasLayer" unique_id=1164931011]
+offset_left = 712.0
+offset_top = 542.0
+offset_right = 1112.0
+offset_bottom = 767.0
+scale = Vector2(0.5719582, 0.5719582)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_i2l1n")
+texture_pressed = ExtResource("2_wfs7u")
+texture_hover = ExtResource("3_es01l")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=920392147]
+position = Vector2(796, 250)
+scale = Vector2(1.4494051, 1.4494047)
+texture = ExtResource("4_0naf5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1606909574]
+libraries/ = SubResource("AnimationLibrary_es01l")
+autoplay = &"intro"
+
+[connection signal="pressed" from="CanvasLayer/Play" to="." method="_on_play_pressed"]

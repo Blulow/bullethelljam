@@ -49,5 +49,6 @@ func shoot() -> void:
 	bullet.shoot(global_position, global_rotation - PI / 2, ring)
 
 func hit() -> void:
-	hits += 1
+	GameData.hits += 1
+	hits = GameData.hits
 	hits_label.text = "Hits: " + str(hits)
